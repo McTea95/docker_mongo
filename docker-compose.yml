@@ -1,9 +1,9 @@
 services:
-  webapp:
+  Backend:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: web_app
+    container_name: Backend
     ports:
       - 3000:3000
     env_file:
@@ -25,6 +25,7 @@ services:
     networks:
       - webnet
 
+# Kommentar aufheben um import zu starten
   mongo-import:
     image: mongo
     container_name: mongo_import

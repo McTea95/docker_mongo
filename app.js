@@ -5,7 +5,8 @@ require('dotenv').config();
 
 
 // MongoDB-Verbindungs-URL
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb://mongodb:27017'; //wichtig
+
 
 // MongoDB-Datenbankname und Sammlungsname
 const dbName = process.env.MONGO_DATABASE.toString();
