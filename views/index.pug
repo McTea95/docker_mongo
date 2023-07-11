@@ -1,0 +1,19 @@
+html
+  head
+    title Daten anzeigen
+    style
+      .container
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        grid-gap: 20px
+
+  body
+    h1 Daten anzeigen
+    .container
+      each land in laender
+        .box
+          h2 #{land.name}
+          div Gold: #{land.gold}
+          div Silber: #{land.silber}
+          div Bronze: #{land.bronze}
+          div Gesamt: #{land.gesamt}

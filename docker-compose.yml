@@ -1,0 +1,44 @@
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web_app
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    depends_on:
+      - mongodb
+    networks:
+      - webnet
+
+  mongodb:
+    image: mongo
+    container_name: my_mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
+    env_file:
+      - .env
+    networks:
+      - webnet
+
+  # mongo-import:
+  #   image: mongo
+  #   container_name: mongo_import
+  #   volumes:
+  #     - ./data:/data
+  #   command: mongoimport --host mongodb --db $MONGO_DATABASE --collection $MONGO_COLLECTION --file /data/verzeichnis.json --jsonArray
+  #   depends_on:
+  #     - mongodb
+  #   networks:
+  #     - webnet
+
+networks:
+  webnet:
+
+
+  
+
