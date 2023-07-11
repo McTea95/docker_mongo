@@ -25,16 +25,16 @@ services:
     networks:
       - webnet
 
-  # mongo-import:
-  #   image: mongo
-  #   container_name: mongo_import
-  #   volumes:
-  #     - ./data:/data
-  #   command: mongoimport --host mongodb --db $MONGO_DATABASE --collection $MONGO_COLLECTION --file /data/verzeichnis.json --jsonArray
-  #   depends_on:
-  #     - mongodb
-  #   networks:
-  #     - webnet
+  mongo-import:
+    image: mongo
+    container_name: mongo_import
+    volumes:
+      - ./data:/data
+    command: mongoimport --host mongodb --db $MONGO_DATABASE --collection $MONGO_COLLECTION --file /data/verzeichnis.json --jsonArray
+    depends_on:
+      - mongodb
+    networks:
+      - webnet
 
 networks:
   webnet:
