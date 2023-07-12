@@ -19,7 +19,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./data:/data/db
+      - ./data:/db
     env_file:
       - .env
     networks:
